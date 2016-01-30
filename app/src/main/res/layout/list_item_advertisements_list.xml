@@ -38,7 +38,7 @@
                 <ImageView
                     android:layout_width="72dp"
                     android:layout_height="72dp"
-                    android:layout_gravity="center_vertical|start"
+                    android:layout_gravity="center_vertical|left"
                     android:layout_marginEnd="8dp"
                     android:layout_marginRight="8dp"
                     app:productThumbnail="@{ad.productThumbnail}"
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top|start"
+                    android:layout_gravity="top|left"
                     android:layout_marginTop="4dp"
                     android:text="@{ad.productName}"
                     tools:text="Test String"/>

@@ -6,5 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardBackdrop"
+    android:clipToPadding="false"
     android:divider="@null"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp"
     tools:context="com.bubbletastic.android.appia.ads.ui.AdvertisementListActivity"/>
