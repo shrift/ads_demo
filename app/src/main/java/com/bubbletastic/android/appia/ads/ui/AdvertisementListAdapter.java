@@ -57,7 +57,7 @@ public class AdvertisementListAdapter extends BaseAdapter {
         ViewDataBinding binding;
         if (convertView == null) {
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            binding = DataBindingUtil.inflate(layoutInflater, R.layout.list_item_advertisements_list, parent, false);
+            binding = DataBindingUtil.inflate(layoutInflater, R.layout.advertisements_item, parent, false);
             binding.setVariable(BR.ad, ad);
             view = binding.getRoot();
             view.setTag(binding);
@@ -72,8 +72,8 @@ public class AdvertisementListAdapter extends BaseAdapter {
         return view;
     }
 
-    @BindingAdapter("productThumbnail")
-    public static void loadThumbnail(ImageView imageView, String url) {
+    @BindingAdapter("loadImage")
+    public static void loadImage(ImageView imageView, String url) {
         if (imageView == null || url == null) {
             return;
         }

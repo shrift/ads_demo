@@ -40,12 +40,18 @@ public class AdvertisementServiceImpl implements AdvertisementService {
             Serializer parser = new Persister();
             AdvertisementResponseWrapper wrapper = parser.read(AdvertisementResponseWrapper.class, response.body().byteStream());
             if (wrapper != null) {
-                return wrapper.getAdvertisements();
+                List<Advertisement> advertisements = wrapper.getAdvertisements();
+                return filterAdsForMinOSVersion(advertisements);
             }
         } catch (Exception e) {
             //parser.read does actually throw "Exception".
             e.printStackTrace();
         }
         return new ArrayList<>();
+    }
+
+    private List<Advertisement> filterAdsForMinOSVersion(List<Advertisement> advertisements) {
+        //TODO: Actually filter against Build.VERSION.RELEASE
+        return advertisements;
     }
 }
