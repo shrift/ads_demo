@@ -1,8 +1,8 @@
 package com.bubbletastic.android.appia.ads.service;
 
-import java.util.List;
-
 import com.bubbletastic.android.appia.ads.model.Advertisement;
+
+import java.util.List;
 
 /**
  * Created by brendanmartens on 1/28/16.
@@ -10,6 +10,8 @@ import com.bubbletastic.android.appia.ads.model.Advertisement;
 public interface AdvertisementService {
 
     /**
+     * Gets a list of advertisements from Appia's service.
+     * The list returned is filtered by the advertisments minOSVersion.
      * @return List of Advertisement.
      */
     List<Advertisement> getAdvertisements();

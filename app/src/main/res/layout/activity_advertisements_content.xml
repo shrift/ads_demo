@@ -6,15 +6,15 @@
              android:background="@color/cardBackdrop"
     >
 
-    <GridView
+    <ListView
         android:id="@+id/advertisements_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:background="@color/cardBackdrop"
         android:clipToPadding="false"
+        android:divider="@null"
         android:fadingEdgeLength="0dp"
-        android:horizontalSpacing="-22dp"
-        android:numColumns="auto_fit"
         android:paddingBottom="12dp"
         android:paddingTop="12dp"
         tools:context="com.bubbletastic.android.appia.ads.ui.AdvertisementsActivity"

@@ -12,7 +12,7 @@ import com.bubbletastic.android.appia.ads.model.Advertisement;
 
 import java.util.List;
 
-public class AdvertisementListActivity extends AppCompatActivity {
+public class AdvertisementsActivity extends AppCompatActivity {
 
     ProgressDialog progressDialog;
     Handler uiHandler = new Handler();
@@ -22,7 +22,7 @@ public class AdvertisementListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advertisements_content);
-        scrollingContent = (AdapterView) findViewById(R.id.activity_advertisements_content);
+        scrollingContent = (AdapterView) findViewById(R.id.advertisements_content);
     }
 
     @Override
@@ -43,12 +43,23 @@ public class AdvertisementListActivity extends AppCompatActivity {
                 uiHandler.post(new Runnable() {
                     @Override
                     public void run() {
-                        scrollingContent.setAdapter(new AdvertisementListAdapter(AdvertisementListActivity.this, advertisements));
-                        progressDialog.hide();
+                        if (scrollingContent != null && progressDialog != null) {
+                            //noinspection unchecked
+                            scrollingContent.setAdapter(new AdvertisementsAdapter(AdvertisementsActivity.this, advertisements));
+                            progressDialog.hide();
+                        }
                     }
                 });
             }
         }).start();
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (progressDialog != null && progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
     }
 }

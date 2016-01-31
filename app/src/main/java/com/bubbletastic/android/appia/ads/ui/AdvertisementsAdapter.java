@@ -21,12 +21,12 @@ import java.util.List;
 /**
  * Created by brendanmartens on 1/28/16.
  */
-public class AdvertisementListAdapter extends BaseAdapter {
+public class AdvertisementsAdapter extends BaseAdapter {
 
     private final Context context;
     private final List<Advertisement> advertisements;
 
-    public AdvertisementListAdapter(Context context, List<Advertisement> advertisements) {
+    public AdvertisementsAdapter(Context context, List<Advertisement> advertisements) {
         this.context = context;
         this.advertisements = advertisements;
     }
