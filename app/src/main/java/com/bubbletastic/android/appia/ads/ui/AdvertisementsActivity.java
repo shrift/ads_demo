@@ -12,10 +12,18 @@ import com.bubbletastic.android.appia.ads.model.Advertisement;
 
 import java.util.List;
 
+/**
+ * The primary screen UI component for showing the scrollable advertisements.
+ */
 public class AdvertisementsActivity extends AppCompatActivity {
 
-    ProgressDialog progressDialog;
-    Handler uiHandler = new Handler();
+    //This handler will be created on the main thread, posting a runnable to it will run that code on the main thread.
+    private Handler uiHandler = new Handler();
+
+    //Indeterminate progress indicator while downloading ads.
+    private ProgressDialog progressDialog;
+
+    //The scrollable content container. It is referred to generically because in portrait it is a listview, in landscape it is a gridview.
     private AdapterView scrollingContent;
 
     @Override
@@ -35,12 +43,14 @@ public class AdvertisementsActivity extends AppCompatActivity {
         }
         progressDialog.show();
 
+        //Fetch the advertisements from the internet.
         new Thread(new Runnable() {
             @Override
             public void run() {
                 AppiaAdsApplication application = (AppiaAdsApplication) getApplicationContext();
                 final List<Advertisement> advertisements = application.getAdvertisementService().getAdvertisements();
                 uiHandler.post(new Runnable() {
+                    //Once we have our result from the ads service, setup the scrolling content container on the main thread.
                     @Override
                     public void run() {
                         if (scrollingContent != null && progressDialog != null) {
@@ -52,7 +62,6 @@ public class AdvertisementsActivity extends AppCompatActivity {
                 });
             }
         }).start();
-
     }
 
     @Override

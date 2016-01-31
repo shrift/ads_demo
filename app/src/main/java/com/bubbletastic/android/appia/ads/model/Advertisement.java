@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * Created by brendanmartens on 1/28/16.
- * A model object to hold the individual xml responses from the appia ads service.
+ * A model object to represent the individual xml elements from the Appia ads service.
  */
 @Root(name = "ad")
 public class Advertisement {

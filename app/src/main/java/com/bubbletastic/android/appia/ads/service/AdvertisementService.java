@@ -11,7 +11,7 @@ public interface AdvertisementService {
 
     /**
      * Gets a list of advertisements from Appia's service.
-     * The list returned is filtered by the advertisments minOSVersion.
+     * The list returned is filtered by the advertisements minOSVersion.
      * @return List of Advertisement.
      */
     List<Advertisement> getAdvertisements();

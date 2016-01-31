@@ -72,6 +72,15 @@ public class AdvertisementsAdapter extends BaseAdapter {
         return view;
     }
 
+    /**
+     * This method is called by the Android data binding service.
+     * In the advertisements_item.xml layout file there are ImageVies with attributes of app:loadImage.
+     * Those attributes specify what url will be passed for the second argument of this method.
+     * The first argument will be the ImageView on which the attribute is declared.
+     *
+     * @param imageView The ImageView on which the data binding adapter attribute is declared.
+     * @param url The value of the data binding adapter attribute.
+     */
     @BindingAdapter("loadImage")
     public static void loadImage(ImageView imageView, String url) {
         if (imageView == null || url == null) {

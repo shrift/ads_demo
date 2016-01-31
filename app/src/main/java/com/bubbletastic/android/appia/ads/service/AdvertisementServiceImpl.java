@@ -18,6 +18,7 @@ import okhttp3.Response;
 
 
 /**
+ * Implementation for AdvertisementService. As this service presently has no state there is no need to control instantiation.
  * Created by brendanmartens on 1/28/16.
  */
 
@@ -53,6 +54,12 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         return new ArrayList<>();
     }
 
+    /**
+     * This method takes a list of advertisements and removes any that the current device is low to use according to minOSVersion.
+     *
+     * @param advertisements the advertisements to filer.
+     * @return the filtered advertisements.
+     */
     private List<Advertisement> filterAdsForMinOSVersion(List<Advertisement> advertisements) {
         Iterator<Advertisement> iterator = advertisements.iterator();
         while (iterator.hasNext()) {
@@ -71,6 +78,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
                     iterator.remove();
                 }
             } catch (NumberFormatException ignored) {
+                //If there was a problem manipulating the versions into a data format that could be compared, just skip processing of that item.
             }
         }
         return advertisements;
